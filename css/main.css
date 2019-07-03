@@ -5,20 +5,21 @@
 }
 
 body {
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(rgb(47,150,163), rgb(48,62,143));
+    background-image:url(../img/losangeles17.jpg);
+    background-position: center;
+    background-size: cover;
     font-family: sans-serif;
+    
 }
 
-/*
 .location-timezone {
-    align-items: center !important;
-} 
-*/
+    color: rgb(233, 10, 10);
+}
 
 .location, 
 .temperature {
@@ -27,6 +28,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    color: #3704ad;
 }
 
 .temperature {
@@ -46,4 +48,8 @@ body {
 
 .degree-section h2 {
     font-size: 40px;
+}
+
+#date {
+    color: #fff;
 }
