@@ -1,3 +1,9 @@
+/* function addUsername(){
+
+} */
+
+
+
 window.addEventListener('load', ()=> {
     let long;
     let lat;
@@ -39,11 +45,23 @@ window.addEventListener('load', ()=> {
     }
 });
 
+// DOM Elements
+
+/* const time = document.getElementById('time'),
+greeting = document.getElementById('greeting'),
+name = document.getElementById('name'),
+focus = document.getElementById('focus');
+*/
+
+
+
+// Clock Area 
+
 function showTime(){
     var date = new Date();
-    var h = date.getHours(); // 0 - 23
-    var m = date.getMinutes(); // 0 - 59
-    var s = date.getSeconds(); // 0 - 59
+    var h = today.getHours(); // 0 - 23
+    var m = today.getMinutes(); // 0 - 59
+    var s = today.getSeconds(); // 0 - 59
     var session = "AM";
 
     if(h == 0){
@@ -66,4 +84,58 @@ function showTime(){
     setTimeout(showTime, 1000);
 }
 
+// Background Picture
+
+fucntion setBgGreet() {
+    let today = new Date(),
+    hour = today.getHours();
+
+    if(hour < 12) {
+        // Morning
+        document.body.style.backgroundImage = "url('../img/losangeles17.jpg')";
+        greeting.textContent = 'Buenos Dias';
+    } else if(hour < 18) {
+        // Afternoon
+        document.body.style.backgroundImage = "url('../img/morning.jpg')";
+        greeting.textContent = 'Buenos Tardes';
+    } else {
+        // Evening
+        document.body.style.backgroundImage = "url('../img/morning.jpg')";
+        greeting.textContent = 'Buenos Noches';
+        // document.body.style.color = 'white';
+    }
+}
+
+//Get Name
+
+
+
+function getName() {
+    if(localStorage.getItem('name') === null) {
+        name.textContent = '[Enter Name]';
+    } else {
+        name.textContent = localStorage.getItem('name');
+    }
+}
+
+// Set Name
+
+function setName(e) {
+    if(e.type === 'keypress') {
+        // Make sure enter is pressed
+        if(e.which == 13 || e.keyCode == 13) {
+            localStorage.setItem('name', e.target.innerText);
+            name.blur();
+        }
+    } else {
+        localStorage.setItem('name', e.target.innerText);
+    }
+}
+
+name.addEventListener('keypress', setName);
+name.addEventListener('blur', setName);
+
+// Envoked Functions
 showTime();
+setBgGreet();
+getName();

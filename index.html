@@ -7,17 +7,34 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Weather App</title>
 </head>
+
+
 <body>
+
+    <!-- username submit area
+    <input type="text" placeholder="username">
+    <button>Submit</button>
+    <form action=""></form>
+    -->
+
+    <time id="time"></time>
 
 
     <div class="location">
-        <h1 class="location-timezone">Hello</h1>
+        <h1>
+            <span id="greeting"></span>
+            <span id="name" contenteditable="true"></span>
+        </h1>
+
+        <h2 id="focus"></h2>
         <canvas class="icon" width="128" height="128"></canvas>
     </div>
-
+<!-- Time Area -->
     <div>
         <h1 id="date">time here</h1>
     </div>
+
+<!-- Temperature Area -->
     <div class="temperature">
         <div class="degree-section">
             <h2 class="temperature-degree">temp</h2>
