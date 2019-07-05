@@ -1,57 +1,11 @@
-/* function addUsername(){
-
-} */
-
-
-
-window.addEventListener('load', ()=> {
-    let long;
-    let lat;
-    let temperatureDescription = document.querySelector('.temperature-description');
-    let temperatureDegree = document.querySelector('.temperature-degree');
-    let locaionTimezone = document.querySelector('.location-timezone');
-
-    if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(position => {
-            long = position.coords.longitude;
-            lat = position.coords.latitude;
-
-            const proxy = 'https://cors-anywhere.herokuapp.com/';
-            const api = `${proxy}https://api.darksky.net/forecast/a330c73d9e9dc436666c9d45cfc40841/${lat},${long}`;
-
-            fetch(api)
-                .then(response => {
-                return response.json();
-                })
-                .then(data => {
-                    
-                    const { temperature, summary, icon } = data.currently;
-                    //Set DOM Elements from the API
-
-                    temperatureDegree.textContent = temperature;
-                    temperatureDescription.textContent = summary;
-                    locationTimezone.textContent = data.timezone;
-                    //Set Icon
-                    setIcons(icon, document.querySelector(".icon"));
-                });
-            });
-    }
-
-    function setIcons(icon, iconID) {
-        const skycons = new Skycons({ color: "white" });
-        const currentIcon = icon.replace(/-/g, "_").toUpperCase();
-        skycons.play();
-        return skycons.set(iconID, Skycons[currentIcon]);
-    }
-});
 
 // DOM Elements
 
 /* const time = document.getElementById('time'),
 greeting = document.getElementById('greeting'),
 name = document.getElementById('name'),
-focus = document.getElementById('focus');
-*/
+focus = document.getElementById('focus'); */
+
 
 
 
@@ -59,9 +13,9 @@ focus = document.getElementById('focus');
 
 function showTime(){
     var date = new Date();
-    var h = today.getHours(); // 0 - 23
-    var m = today.getMinutes(); // 0 - 59
-    var s = today.getSeconds(); // 0 - 59
+    var h = date.getHours(); // 0 - 23
+    var m = date.getMinutes(); // 0 - 59
+    var s = date.getSeconds(); // 0 - 59
     var session = "AM";
 
     if(h == 0){
@@ -83,10 +37,12 @@ function showTime(){
 
     setTimeout(showTime, 1000);
 }
+showTime();
+
 
 // Background Picture
 
-fucntion setBgGreet() {
+/* fucntion setBgGreet() {
     let today = new Date(),
     hour = today.getHours();
 
@@ -104,7 +60,9 @@ fucntion setBgGreet() {
         greeting.textContent = 'Buenos Noches';
         // document.body.style.color = 'white';
     }
-}
+} */
+
+
 
 //Get Name
 
@@ -118,6 +76,8 @@ function getName() {
     }
 }
 
+/*
+
 // Set Name
 
 function setName(e) {
@@ -128,14 +88,18 @@ function setName(e) {
             name.blur();
         }
     } else {
-        localStorage.setItem('name', e.target.innerText);
+        localStorage.setItem('name',e.target.innerText);
     }
 }
 
 name.addEventListener('keypress', setName);
 name.addEventListener('blur', setName);
 
+*/
+
+
 // Envoked Functions
-showTime();
-setBgGreet();
+
+
+// setBgGreet();
 getName();
